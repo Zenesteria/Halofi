@@ -1,12 +1,25 @@
 import {FaHome, FaChartLine, FaCompass, FaGripHorizontal,FaTicketAlt, FaRegCalendarAlt
 ,FaRegHeart, FaUsers, FaRegStar, FaBars} from 'react-icons/fa'
-import { useState } from 'react'
+import UseWindowSize from './hooks/UseWindowSize';
+import { useState, useEffect } from 'react'
 
 export default function MusicNav(){
+    const size = UseWindowSize();
     const notHidden = "w-[28vw] min-w-[300px] max-w-[320px]  px-4 flex flex-col h-full bg-white shadow-lg overflow-y-auto overflow-x-hidden absolute top-0 left-0 z-20 xl:relative transition-all duration-700 musicNav"
     const Hidden = "w-[5vw] px-4  h-[5vh] overflow-y-hidden overflow-x-hidden absolute top-0 left-0 z-20 xl:relative transition-all duration-700"
+
     const [hiddenMusicNav, setHiddenMusicNav] = useState(false)
-    const foldUp = () => {
+    const [queryState, setQueryState] = useState(false)
+
+    if((size.width < 1280) && !hiddenMusicNav && !queryState){
+        setHiddenMusicNav(true)
+        setQueryState(true)
+    }
+
+    
+
+    const FoldUp = (event) => {
+        setQueryState(true)
         if(!hiddenMusicNav){
             setHiddenMusicNav(true)
         }
@@ -17,7 +30,7 @@ export default function MusicNav(){
     return(
         <div className={!hiddenMusicNav ? notHidden : Hidden}>
             <div className="flex relative px-1 w-full h-[3vh]">
-                <FaBars className='flex xl:hidden absolute top-2 right-0' onClick={foldUp}  size='20'/>
+                <FaBars className='flex xl:hidden absolute top-2 right-0 barIcon' onClick={FoldUp}  size='20'/>
             </div>
             <div className={!hiddenMusicNav ? "flex flex-col" : 'scale-0'}>
                 <div className="flex flex-col w-[20vw] ">
