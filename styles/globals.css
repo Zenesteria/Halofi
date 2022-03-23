@@ -22,7 +22,49 @@ a {
 
 
 @layer components{
-  .activebtn{
-    @apply bg-black text-white 
+
+  .Categories{
+    @apply flex py-2 flex-wrap overflow-auto h-fit min-h-[200px]
   }
+
 }
+
+
+/* width */
+.musicNav::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+.musicNav::-webkit-scrollbar-track {
+  background:transparent;
+}
+
+/* Handle */
+.musicNav::-webkit-scrollbar-thumb {
+  background: #470055;
+  border-radius:50px;
+}
+
+
+/* Categories */
+
+/* width */
+.Categories::-webkit-scrollbar {
+  width: 5px;
+}
+
+/* Track */
+.Categories::-webkit-scrollbar-track {
+  background:transparent;
+}
+
+/* Handle */
+.Categories::-webkit-scrollbar-thumb {
+  background: #470055;
+  border-radius:50px;
+}
+
+
+
+

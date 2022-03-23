@@ -1,31 +1,43 @@
 import {FaHome, FaChartLine, FaCompass, FaGripHorizontal,FaTicketAlt, FaRegCalendarAlt
-,FaRegHeart, FaUsers, FaRegStar} from 'react-icons/fa'
+,FaRegHeart, FaUsers, FaRegStar, FaBars} from 'react-icons/fa'
 import { useState } from 'react'
 
 export default function MusicNav(){
+    const notHidden = "w-[28vw] min-w-[300px] max-w-[320px]  px-4 flex flex-col h-full bg-white shadow-lg overflow-y-auto overflow-x-hidden absolute top-0 left-0 z-20 xl:relative transition-all duration-700 musicNav"
+    const Hidden = "w-[5vw] px-4  h-[5vh] overflow-y-hidden overflow-x-hidden absolute top-0 left-0 z-20 xl:relative transition-all duration-700"
+    const [hiddenMusicNav, setHiddenMusicNav] = useState(false)
+    const foldUp = () => {
+        if(!hiddenMusicNav){
+            setHiddenMusicNav(true)
+        }
+        else{
+            setHiddenMusicNav(false)
+        }
+    }
     return(
-        <div className=" container-xs w-[35vw] py-4 px-8 flex flex-col h-full 
-        bg-white shadow-lg overflow-y-auto overflow-x-hidden">
-            <div className="flex w-full h-[3vh]">
-
+        <div className={!hiddenMusicNav ? notHidden : Hidden}>
+            <div className="flex relative px-1 w-full h-[3vh]">
+                <FaBars className='flex xl:hidden absolute top-2 right-0' onClick={foldUp}  size='20'/>
             </div>
-            <div className="flex flex-col w-[20vw] ">
-                <h1 className=' my-10 text-2xl'>Halo<span className=' text-blue-600'>fi</span></h1>
-                <NavBtn state='active' btnicon={<FaHome size='20'/>} text='Home'/>
-                <NavBtn state='' btnicon={<FaChartLine size='20'/>} text='Trends'/>
-                <NavBtn state='' btnicon={<FaCompass size='20'/>} text='Feed'/>
-            </div>
-            <div className="flex my-4 flex-col">
-                <h6 className=' text-gray-400'>Discover</h6>
-                <NavBtn state='' btnicon={<FaGripHorizontal size='20'/>} text='New and Notable'/>
-                <NavBtn state='' btnicon={<FaRegCalendarAlt size='20'/>} text='Release Calendar'/>
-                <NavBtn state='' btnicon={<FaTicketAlt size='20'/>} text='Events'/>
-            </div>
-            <div className="flex my-4 flex-col">
-                <h6 className=' text-gray-400'>Your Collection</h6>
-                <NavBtn state='' btnicon={<FaRegHeart size='20'/>} text='Favorite Songs'/>
-                <NavBtn state='' btnicon={<FaUsers size='20'/>} text='Artist'/>
-                <NavBtn state='' btnicon={<FaRegStar size='20'/>} text='Albums'/>
+            <div className={!hiddenMusicNav ? "flex flex-col" : 'scale-0'}>
+                <div className="flex flex-col w-[20vw] ">
+                    <h1 className=' my-10 text-3xl'>Halo<span className=' text-blue-600'>fi</span></h1>
+                    <NavBtn state='active' btnicon={<FaHome size='20'/>} text='Home'/>
+                    <NavBtn state='' btnicon={<FaChartLine size='20'/>} text='Trends'/>
+                    <NavBtn state='' btnicon={<FaCompass size='20'/>} text='Feed'/>
+                </div>
+                <div className="flex my-4 flex-col">
+                    <h6 className=' text-gray-400'>Discover</h6>
+                    <NavBtn state='' btnicon={<FaGripHorizontal size='20'/>} text='New and Notable'/>
+                    <NavBtn state='' btnicon={<FaRegCalendarAlt size='20'/>} text='Release Calendar'/>
+                    <NavBtn state='' btnicon={<FaTicketAlt size='20'/>} text='Events'/>
+                </div>
+                <div className="flex my-4 flex-col">
+                    <h6 className=' text-gray-400'>Your Collection</h6>
+                    <NavBtn state='' btnicon={<FaRegHeart size='20'/>} text='Favorite Songs'/>
+                    <NavBtn state='' btnicon={<FaUsers size='20'/>} text='Artist'/>
+                    <NavBtn state='' btnicon={<FaRegStar size='20'/>} text='Albums'/>
+                </div>
             </div>
         </div>
     )
@@ -34,7 +46,7 @@ export default function MusicNav(){
 
 const NavBtn = (props) => {
     return(
-        <div className={props.state === 'active' ? 'rounded-xl bg-black text-white w-full flex p-4 items-center' : 'rounded-xl bg-white text-black w-full flex p-4 items-center' }>
+        <div className={props.state === 'active' ? 'rounded-xl bg-black text-white w-full flex p-4 items-center min-w-[250px]' : 'rounded-xl bg-white text-black w-full max-w-[285px] flex p-4 items-center hover:bg-purple-200 transition-all duration-300 my-2 cursor-pointer min-w-[250px]' }>
             <NavIcon icon={props.btnicon}/>
             <span className=' text-sm'>{props.text}</span>
         </div>
