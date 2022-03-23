@@ -5,9 +5,9 @@ const TopNav = () => {
     return(
         <div className="flex w-full h-[7vh] items-center">
             {/* ARROWS */}
-            <div className="flex h-full w-[15%]  items-center justify-around p-4">
-                <FaArrowLeft size='16'/>
-                <FaArrowRight size='16'/>
+            <div className="flex h-fit w-[15%]  items-center justify-around text-xs lg:text-[1rem]">
+                <FaArrowLeft className='mx-2'/>
+                <FaArrowRight className='mx-2'/>
             </div>
             
             {/* SEARCH BOX */}

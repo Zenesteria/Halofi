@@ -35,7 +35,7 @@ const SubMain = () => {
     }
     return(
         <div className={!hideSideMenu ? notHidden : Hidden}>
-            <FaBars className=' scale-100 xl:scale-0 absolute right-0 top-2 cursor-pointer' onClick={foldUp} size='20'/>
+            <FaBars className=' scale-100 xl:scale-0 absolute right-0 top-0 cursor-pointer' onClick={foldUp} size='20'/>
             <div className={!hideSideMenu ? "flex flex-col h-full max-w-[300px] delay-500" : "max-w-[300px] scale-0 h-full"}>
                 <h1 className='font-bold text-2xl'>Shortcuts</h1>
                 <div className="flex flex-wrap">

@@ -29,7 +29,7 @@ export default function MusicNav(){
     }
     return(
         <div className={!hiddenMusicNav ? notHidden : Hidden}>
-            <FaBars className='flex xl:hidden absolute top-2 left-0 barIcon' onClick={FoldUp}  size='20'/>
+            <FaBars className='flex xl:hidden absolute top-0 left-0 barIcon' onClick={FoldUp}  size='20'/>
             <div className={!hiddenMusicNav ? "flex flex-col" : 'scale-0'}>
                 <div className="flex flex-col w-[20vw] ">
                     <h1 className=' my-10 text-3xl'>Halo<span className=' text-blue-600'>fi</span></h1>
