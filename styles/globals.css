@@ -47,22 +47,25 @@ a {
 }
 
 
-/* Categories */
 
-/* width */
-.Categories::-webkit-scrollbar {
-  width: 5px;
+
+
+.heart{
+  animation: like 0.5s;
 }
 
-/* Track */
-.Categories::-webkit-scrollbar-track {
-  background:transparent;
-}
+@keyframes like {
 
-/* Handle */
-.Categories::-webkit-scrollbar-thumb {
-  background: #470055;
-  border-radius:50px;
+  0% {
+    transform: translateY(0);
+    animation-timing-function: cubic-bezier(0.8, 0, 1, 1);
+  }
+  50%{
+    transform:scaleY(0.5);
+  }
+  100%{
+    transform:scaleY(1.3);
+  }
 }
 
 

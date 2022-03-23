@@ -1,4 +1,4 @@
-import {BsVolumeUp} from 'react-icons/bs'
+import {BsVolumeUp, BsPlay} from 'react-icons/bs'
 
 const SongMenu = () => {
     return(
@@ -21,13 +21,17 @@ const SongMenu = () => {
 
 const Song = () => {
     return(
-        <div className="text-xs flex  my-1 rounded-lg w-full h-[20%] mdl:text-sm md:text-base">
+        <div className="group text-xs flex  my-1 rounded-lg w-full h-[20%] mdl:text-sm md:text-base hover:bg-white hover:shadow-md cursor-pointer transition-all duration-300">
             <div className="flex items-center justify-center h-full w-[10%] ">
                 <BsVolumeUp size='20'/>
             </div>
-            <div className="flex items-center px-2 w-[25%] ">
-                <h3>Time is Ticking Out</h3>
+            <div className="flex items-center justify-between px-10 w-fit">
+                <h3 className='mr-4'>Time is Ticking Out</h3>
+                <div className="flex  w-fit h-fit">
+                    <BsPlay className='scale-0 p-2 rounded-full text-[2rem] group-hover:scale-100 hover:text-white hover:bg-purple-400 transition-all duration-300'/>
+                </div>
             </div>
+            
             <div className="flex items-center px-2 w-[20%] ">
                 <h3>The Cranberries</h3>
             </div>
