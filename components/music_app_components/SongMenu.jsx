@@ -45,7 +45,7 @@ const Song = () => {
             
             <div className="flex items-center  w-[20%] overflow-hidden">
                 <div className="flex w-[200px]">
-                    <h3 className='w-[200px] p-1'>The Cranberries</h3>
+                    <h3 className='w-[200px] p-1'>The Peggies</h3>
                 </div>
                 ...
             </div>
